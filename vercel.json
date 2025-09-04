@@ -3,6 +3,10 @@
   "name": "qr-generator",
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
       "source": "/qr-generator",
       "destination": "/qr-generator.html"
     }
