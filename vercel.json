@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "name": "qr-generator",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/qr-generator",
+      "dest": "/qr-generator.html"
+    },
+    {
+      "src": "/home/home.html",
+      "dest": "/qr-generator",
+      "status": 301
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "functions": {
+    "server.js": {
+      "memory": 128
+    }
+  }
+}

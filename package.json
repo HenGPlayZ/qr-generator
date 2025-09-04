@@ -1,0 +1,28 @@
+{
+  "name": "qr-generator",
+  "version": "2.0.0",
+  "description": "Modern QR Code Generator with clean URLs and premium design",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build process needed for static files'",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "qr-code",
+    "generator",
+    "wifi",
+    "text",
+    "javascript",
+    "responsive"
+  ],
+  "author": "Draxler",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
