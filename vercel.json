@@ -6,25 +6,38 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
       "source": "/qr-generator",
       "destination": "/qr-generator.html"
     }
   ],
   "redirects": [
     {
-      "source": "/home/home.html",
-      "destination": "/qr-generator",
+      "source": "/home",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/home/(.*)",
-      "destination": "/qr-generator",
+      "destination": "/",
       "permanent": true
     }
   ],
   "headers": [
     {
       "source": "/public/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))",
       "headers": [
         {
           "key": "Cache-Control",
