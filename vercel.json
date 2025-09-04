@@ -1,29 +1,27 @@
 {
   "version": 2,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/qr-generator",
-      "destination": "/qr-generator.html"
+      "src": "*.html",
+      "use": "@vercel/static"
     },
     {
-      "source": "/qr-generator.html",
-      "destination": "/qr-generator.html"
-    },
-    {
-      "source": "/",
-      "destination": "/index.html"
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
-  "redirects": [
+  "routes": [
     {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
+      "src": "/qr-generator",
+      "dest": "/qr-generator.html"
     },
     {
-      "source": "/home/(.*)",
-      "destination": "/",
-      "permanent": true
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "/$1"
     }
   ]
 }
