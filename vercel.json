@@ -1,15 +1,29 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
+      "source": "/qr-generator",
+      "destination": "/qr-generator.html"
+    },
+    {
+      "source": "/qr-generator.html",
+      "destination": "/qr-generator.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/(.*)",
-      "dest": "/server.js"
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/(.*)",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
