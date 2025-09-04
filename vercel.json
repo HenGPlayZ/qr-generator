@@ -1,11 +1,10 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "name": "qr-generator",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
     {
       "source": "/qr-generator",
       "destination": "/qr-generator.html"
@@ -14,6 +13,11 @@
   "redirects": [
     {
       "source": "/home/home.html",
+      "destination": "/qr-generator",
+      "permanent": true
+    },
+    {
+      "source": "/home/(.*)",
       "destination": "/qr-generator",
       "permanent": true
     }
@@ -25,6 +29,23 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
     }
