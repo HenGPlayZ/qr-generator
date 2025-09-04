@@ -1,34 +1,28 @@
 {
   "version": 2,
   "name": "qr-generator",
-  "builds": [
+  "rewrites": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
+      "source": "/qr-generator",
+      "destination": "/qr-generator.html"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/qr-generator",
-      "dest": "/qr-generator.html"
-    },
-    {
-      "src": "/home/home.html",
-      "dest": "/qr-generator",
-      "status": 301
-    },
-    {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/home/home.html",
+      "destination": "/qr-generator",
+      "permanent": true
     }
   ],
-  "functions": {
-    "server.js": {
-      "memory": 128
+  "headers": [
+    {
+      "source": "/public/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
-  }
+  ]
 }
