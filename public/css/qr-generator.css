@@ -87,14 +87,16 @@ body {
 }
 
 main {
-  min-height: 93vh;
-  min-height: calc(var(--vh, 1vh) * 93); /* Fallback using custom property */
-  min-height: 93dvh; /* Dynamic viewport height for modern browsers */
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100); /* Fallback using custom property */
+  min-height: 100dvh; /* Dynamic viewport height for modern browsers */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: var(--space-lg);
+  padding-bottom: calc(7vh + var(--space-lg)); /* Add space for fixed footer */
+  padding-bottom: calc(var(--vh, 1vh) * 7 + var(--space-lg)); /* Fallback */
   position: relative;
   overflow: hidden;
 }
@@ -807,6 +809,10 @@ main::before {
 }
 
 .footerContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 7vh;
   height: calc(var(--vh, 1vh) * 7); /* Fallback using custom property */
   height: 7dvh; /* Dynamic viewport height for modern browsers */
@@ -817,6 +823,7 @@ main::before {
   padding: var(--space-lg);
   background: var(--bg-surface);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
 }
 
 .footerContainer p {
@@ -1055,6 +1062,10 @@ main::before {
   .footerContainer p {
     font-size: 1.2rem;
     padding: 0 var(--space-sm);
+  }
+
+  .footerContainer {
+    padding: var(--space-sm) var(--space-md);
   }
 }
 
