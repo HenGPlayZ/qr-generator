@@ -213,4 +213,15 @@
   ></script>
   <script src="public/js/qr-generator.js"></script>
   <script src="public/js/FileSaver.js"></script>
+
+  <script>
+    function setVhProperty() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+
+    setVhProperty();
+    window.addEventListener("resize", setVhProperty);
+    window.addEventListener("orientationchange", setVhProperty);
+  </script>
 </html>

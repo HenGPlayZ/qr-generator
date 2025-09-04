@@ -88,6 +88,8 @@ body {
 
 main {
   min-height: 93vh;
+  min-height: calc(var(--vh, 1vh) * 93); /* Fallback using custom property */
+  min-height: 93dvh; /* Dynamic viewport height for modern browsers */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -806,6 +808,8 @@ main::before {
 
 .footerContainer {
   height: 7vh;
+  height: calc(var(--vh, 1vh) * 7); /* Fallback using custom property */
+  height: 7dvh; /* Dynamic viewport height for modern browsers */
   width: 100%;
   display: flex;
   align-items: center;
