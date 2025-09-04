@@ -104,5 +104,14 @@
         loader.style.display = "none";
       }, 3000);
     });
+
+    function setVhProperty() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+
+    setVhProperty();
+    window.addEventListener("resize", setVhProperty);
+    window.addEventListener("orientationchange", setVhProperty);
   </script>
 </html>
