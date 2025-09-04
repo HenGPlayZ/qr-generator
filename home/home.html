@@ -65,14 +65,78 @@
       </div>
 
       <div class="main-container">
-        <input
-          type="text"
-          name="text"
-          class="input"
-          id="input"
-          placeholder="Enter Text here...."
-          required
-        />
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+          <button class="tab-btn active" id="text-tab" data-tab="text">
+            TEXT
+          </button>
+          <button class="tab-btn" id="wifi-tab" data-tab="wifi">WIFI</button>
+        </div>
+
+        <!-- Text Tab Content -->
+        <div class="tab-content active" id="text-content">
+          <input
+            type="text"
+            name="text"
+            class="input"
+            id="input"
+            placeholder="Enter Text here...."
+            required
+          />
+        </div>
+
+        <!-- WiFi Tab Content -->
+        <div class="tab-content" id="wifi-content">
+          <div class="wifi-form">
+            <div class="form-group">
+              <label for="wifi-ssid">Network Name (SSID)</label>
+              <input
+                type="text"
+                id="wifi-ssid"
+                class="input"
+                placeholder="My WiFi Network"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="wifi-password">Password</label>
+              <div class="password-container">
+                <input
+                  type="password"
+                  id="wifi-password"
+                  class="input"
+                  placeholder="WiFi Password"
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="password-toggle"
+                >
+                  SHOW
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="wifi-security">Security Type</label>
+              <select id="wifi-security" class="input select">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None (Open)</option>
+              </select>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="wifi-hidden" />
+                <span class="checkmark"></span>
+                Hidden Network
+              </label>
+            </div>
+          </div>
+        </div>
+
         <button class="submit" id="submit">GENERATE</button>
       </div>
 
@@ -107,7 +171,7 @@
                 <button class="download" id="forjpg">JPG</button>
                 <button class="download" id="forpng">PNG</button>
                 <button class="download" id="forsvg">SVG</button>
-                <button class="download copy-btn" id="copy-btn">📋 Copy</button>
+                <button class="download copy-btn" id="copy-btn">COPY</button>
               </div>
             </div>
           </div>
@@ -122,7 +186,7 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast hidden">
       <div class="toast-content">
-        <span class="toast-icon">✅</span>
+        <span class="toast-icon">SUCCESS</span>
         <span class="toast-message">QR Code copied to clipboard!</span>
       </div>
     </div>
